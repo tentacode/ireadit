@@ -1,0 +1,52 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+          coverage: none
+        
+      - name: Setup project
+        run: make install
+
+      - name: Phpspec
+        run: bin/phpspec run -fpretty
+
+      - name: Phpstan
+        run: bin/phpstan
+
+      - name: Automatic code sniffer fixing
+        run: bin/ecs --fix
+        continue-on-error: true
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: '*.php'
+          commit_message: ":robot::art: Fix CS"
+
+      - name: Checking code sniffer after fixes
+        run: bin/ecs
+
+      # On failure
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        if: ${{ failure() }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: '#ci'
+          SLACK_COLOR: '#FF5555'
+          SLACK_USERNAME: 'ireadit'
+          SLACK_ICON_EMOJI: ':books:'
+          SLACK_TITLE: Last commit
+          SLACK_FOOTER: "“Try not. Do or do not. There is no try.” — Yoda"
