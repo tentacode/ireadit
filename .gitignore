@@ -2,6 +2,8 @@
 /bin
 !/bin/console
 !/bin/phpunit
+/cypress/downloads
+/cypress/videos
 
 ###> symfony/framework-bundle ###
 /.env.local

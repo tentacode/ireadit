@@ -38,6 +38,14 @@ jobs:
       - name: Checking code sniffer after fixes
         run: bin/ecs
 
+      - name: Starting php server
+        run: php -S 127.0.0.1:1337 -t public &
+
+      - name: Cypress
+        uses: cypress-io/github-action@v4
+        with:
+          config: baseUrl=http://localhost:1337
+
       # On failure
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2

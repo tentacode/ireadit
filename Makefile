@@ -5,8 +5,13 @@ help:
 
 install: ## Installing project
 	composer install
+	yarn
+	yarn dev
 
 test: ## Run all tests
 	bin/phpspec run -fpretty
 	bin/phpstan
 	bin/ecs
+
+e2e: ## Run all e2e tests
+	yarn run cypress open
