@@ -10,5 +10,11 @@
 
 <div class="example-wrapper">
     <h1>Ireadit 📚✅</h1>
+
+    {% for link in links %}
+        One link here.
+    {% else %}
+        No links.
+    {% endfor %}
 </div>
 {% endblock %}
