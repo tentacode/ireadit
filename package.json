@@ -1,7 +1,5 @@
 {
     "devDependencies": {
-        "@hotwired/stimulus": "^3.0.0",
-        "@symfony/stimulus-bridge": "^3.0.0",
         "@symfony/webpack-encore": "^2.0.0",
         "core-js": "^3.0.0",
         "cypress": "^10.1.0",
