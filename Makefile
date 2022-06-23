@@ -6,7 +6,7 @@ help:
 install: ## Installing project
 	composer install
 	yarn
-	yarn dev
+	yarn encore dev
 
 test: ## Run all tests
 	bin/phpspec run -fpretty
@@ -15,3 +15,6 @@ test: ## Run all tests
 
 e2e: ## Run all e2e tests
 	yarn run cypress open
+
+watch:
+	yarn encore dev --watch
