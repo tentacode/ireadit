@@ -5,8 +5,14 @@ help:
 
 install: ## Installing project
 	composer install
+	make reset
 	yarn
 	yarn encore dev
+
+reset: ## Resetting database
+	bin/console doctrine:database:drop --if-exists --force
+	bin/console doctrine:database:create
+	bin/console doctrine:migrations:migrate --no-interaction
 
 test: ## Run all tests
 	bin/phpspec run -fpretty
