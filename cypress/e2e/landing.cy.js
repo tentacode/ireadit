@@ -1,6 +1,6 @@
-describe('Landing spec', () => {
+describe('Landing', () => {
   it('contains a valid title', () => {
     cy.visit('/')
-    cy.contains('Ireadit 📚✅')
+    cy.contains('Ne ratez plus votre veille technique !')
   })
 })

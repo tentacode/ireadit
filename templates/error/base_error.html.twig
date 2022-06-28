@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block body_class %}bg-red-100{%endblock%}
+
+{% block body %}
+<!-- Section 2 -->
+<section class="px-2 py-0 md:px-0">
+  <div class="container items-center max-w-6xl px-2 mx-auto">
+    <div class="flex flex-wrap items-center sm:-mx-3">
+      <div class="mx-auto">
+        <div style="margin-left: -50px" class="h-auto overflow-hidden">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_rpg3ym9m.json"  background="transparent"  speed="1"  style="width: 400px; height: 400px;"  loop autoplay></lottie-player>
+        </div>
+      </div>
+      <div style="margin-top: -50px" class="w-full">
+        <div class="mx-auto pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <span class="block xl:inline">500, oh non&nbsp;!&nbsp;😱</span>
+          </h1>
+          <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl pr-10">
+            {% block error_message %}
+                C'est inattendu, mais il semble que vous ayez rencontré une erreur.
+            {% endblock %}
+          </p>
+        <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+            <a href="{{ path('landing') }}" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-pink-500 sm:mb-0 hover:bg-pink-600 sm:w-auto rounded-none">
+                Revenir à la page d'accueil
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>   
+            </a>
+        </div>
+          <span class="text-gray-400 text-xs italic">&ldquo;Mama mia…&rdquo; — Mario</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

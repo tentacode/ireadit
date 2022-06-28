@@ -1,0 +1,51 @@
+{% use 'form_div_layout.html.twig' with form_widget_simple as base_form_widget_simple %}
+{% use 'form_div_layout.html.twig' with form_label as base_form_label %}
+{% use 'form_div_layout.html.twig' with form_row as base_form_row %}
+
+{%- block form_widget_simple -%}
+    {% set customClass = ' inline-block w-full px-3 py-2 border-2 focus:outline-none focus:border-purple-700 ' %}
+
+    {%- if errors|length > 0 -%}
+        {% set customClass = customClass ~ 'border-pink-600' %}
+    {%- endif -%}
+
+    {% set attr = attr|merge({
+        'class': attr.class|default('') ~ customClass
+    }) %}
+
+    {{ block('base_form_widget_simple') }}
+{%- endblock form_widget_simple -%}
+
+{%- block form_label -%}
+    {% set customClass = ' text-gray-700 text-xs inline-block mt-5 mb-2 font-medium leading-none ' %}
+
+    {% set label_attr = label_attr|merge({
+        'class': label_attr.class|default('') ~ customClass
+    }) %}
+    {{ block('base_form_label') }}
+{%- endblock form_label -%}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+    <ul>
+        {%- for error in errors -%}
+            <li class="text-pink-600 text-s italic pt-1">{{ error.message }}</li>
+        {%- endfor -%}
+    </ul>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{%- block form_row -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+    {%- endif -%}
+    <div{% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_label(form) -}}
+        {{- form_widget(form, widget_attr) -}}
+        {{- form_errors(form, {
+            'attr': {'class': ''}
+        }) -}}
+        {{- form_help(form) -}}
+    </div>
+{%- endblock form_row -%}

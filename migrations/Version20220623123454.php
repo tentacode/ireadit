@@ -14,12 +14,11 @@ final class Version20220623123454 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Link table and default tables';
     }
 
     public function up(Schema $schema): void
     {
-        // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SEQUENCE link_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE link (id INT NOT NULL, uuid UUID NOT NULL, title VARCHAR(255) NOT NULL, url VARCHAR(255) NOT NULL, type VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN link.uuid IS \'(DC2Type:uuid)\'');
@@ -40,7 +39,6 @@ final class Version20220623123454 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
         $this->addSql('DROP SEQUENCE link_id_seq CASCADE');
         $this->addSql('DROP TABLE link');

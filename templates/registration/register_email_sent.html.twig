@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ireadit - Inscription à la beta{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block body %}
+<!-- Section 2 -->
+<section class="px-2 py-10 bg-white md:px-0">
+  <div class="container items-center max-w-6xl px-2 mx-auto">
+    <div class="flex flex-wrap items-center sm:-mx-3">
+      <div class="w-full md:w-1/2">
+        <div class="w-full h-auto overflow-hidden">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player class="mx-auto" src="https://assets4.lottiefiles.com/packages/lf20_ebqz3ltq.json"  background="transparent"  speed="1"  style="width: 450px; height: 450px;"  loop  autoplay></lottie-player>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 md:px-3">
+        <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <span class="block xl:inline">Votre inscription est presque terminée&nbsp;!</span>
+          </h1>
+          <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl pr-10">
+            Nous vous avons envoyé un email pour vérifier votre adresse. Vérifiez votre  <span class="text-pink-500">boîte email</span> et cliquez sur le lien de validation pour terminer votre inscription.
+          </p>
+          {% if provider_url is not empty %}
+            <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                <a href="{{ provider_url }}" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-pink-500 sm:mb-0 hover:bg-pink-600 sm:w-auto rounded-none">
+                    Ouvrir ma boîte email
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-3 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M2.94 6.412A2 2 0 002 8.108V16a2 2 0 002 2h12a2 2 0 002-2V8.108a2 2 0 00-.94-1.696l-6-3.75a2 2 0 00-2.12 0l-6 3.75zm2.615 2.423a1 1 0 10-1.11 1.664l5 3.333a1 1 0 001.11 0l5-3.333a1 1 0 00-1.11-1.664L10 11.798 5.555 8.835z" clip-rule="evenodd" />
+                    </svg>             
+                </a>
+            </div>
+          {% endif %}
+          <span class="text-gray-400 text-xs italic">Pensez à vérifier votre dossier "spam" !</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

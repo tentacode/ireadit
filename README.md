@@ -3,9 +3,22 @@
 
 # ireadit ✅📚
 
+## Thanks 💖
+
+ireadit is built using :
+
+* lottie files @TODO
+* Symfony 6
+* tailwind
+* tailwind app
+* template email : https://github.com/leemunroe/responsive-html-email-template
+* devdojo tails
+
 ## Requirements
 
 * php 8.1
+* postgres
+* stellar (pip stellar & pip psycopg2)
 
 ## Setup
 

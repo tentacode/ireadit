@@ -3,60 +3,44 @@
 {% block title %}Hello LandingController!{% endblock %}
 
 {% block body %}
-<!-- This example requires Tailwind CSS v2.0+ -->
-<!--
-  This component uses @tailwindcss/forms
 
-  yarn add @tailwindcss/forms
-  npm install @tailwindcss/forms
-
-  plugins: [require('@tailwindcss/forms')]
--->
-
-<aside class="p-12 bg-gray-900 sm:p-16 lg:p-24">
-  <div class="max-w-xl mx-auto text-center">
-    <p class="text-sm font-medium text-gray-300">
-      Don't let big companies own your data
-    </p>
-
-    <p class="mt-2 text-3xl font-bold text-white sm:text-4xl">
-      Ireadit 📚✅
-    </p>
-
-    <form class="mt-8 sm:flex">
-      <div class="sm:flex-1">
-        <label for="email" class="sr-only">Email</label>
-
-        <input
-          type="email"
-          placeholder="Email address"
-          class="w-full p-3 text-white bg-gray-800 border-2 border-gray-700 rounded-lg"
-        />
+<!-- Section 2 -->
+<section class="px-2 py-10 bg-white md:px-0">
+  <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+    <div class="flex flex-wrap items-center sm:-mx-3">
+      <div class="w-full md:w-1/2 md:px-3">
+        <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <span class="block xl:inline">Ne ratez plus votre</span>
+            <span class="block text-pink-500 xl:inline">veille technique !</span>
+          </h1>
+          <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
+            Avec  <span class="text-pink-500">ireadit</span>, reprenez le contrôle de votre veille technique, trouvez plus facilement les articles qui vous intéressent et partagez vos trouvailles avec votre équipe.
+          </p>
+          <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+            <a href="{{ path("register") }}" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-pink-500 sm:mb-0 hover:bg-pink-600 sm:w-auto rounded-none">
+              S'inscrire à la beta
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <button
-        type="submit"
-        class="flex items-center justify-between w-full px-5 py-3 mt-4 font-medium text-white bg-blue-600 rounded-lg sm:w-auto sm:mt-0 sm:ml-4 hover:bg-blue-500"
-      >
-        Sign up
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          class="flex-shrink-0 w-4 h-4 ml-3"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          />
-        </svg>
-      </button>
-    </form>
+      <div class="w-full md:w-1/2">
+        <div class="w-full h-auto overflow-hidden">
+        {#
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_wczpanc1.json"  background="transparent"  speed="1"  style="width: 568px; height: 568px;"  loop  autoplay></lottie-player>
+        #}
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_icnvjpdc.json"  background="transparent"  speed="0.5"  style="width: 568px; height: 568px;"  loop  autoplay></lottie-player>
+        </div>
+      </div>
+    </div>
   </div>
-</aside>
+</section>
+
+
+
 
 {% endblock %}
