@@ -19,16 +19,39 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
           coverage: none
-          
+
+      - name: Setup Python / pip
+        uses: actions/setup-python@v1
+      - uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            stellar
+            psycopg2
+
+      - name: Init postgres
+        run: PGPASSWORD=root psql -c 'create database stellar_data;' -h 127.0.0.1 -U postgres
+
+      - name: Override .env
+        run: echo 'BASE_URL_HOST=127.0.0.1:1337' > .env.local
         
       - name: Setup project
         run: make install
@@ -55,10 +78,24 @@ jobs:
       - name: Starting php server
         run: php -S 127.0.0.1:1337 -t public &
 
+      - name: Start workers
+        run: bin/console messenger:consume async &
+
+      - name: Installing and starting maildev
+        run: yarn global add maildev && maildev &
+
       - name: Cypress
         uses: cypress-io/github-action@v4
         with:
-          config: baseUrl=http://localhost:1337
+          config: baseUrl=http://127.0.0.1:1337/
+
+      - name: Storing failing screenshots
+        uses: actions/upload-artifact@master
+        if: ${{ failure() }}
+        with:
+          name: cypress-failure-screenshots
+          path: cypress/screenshots/*
+          retention-days: 5
 
       # On failure
       - name: Slack Notification

@@ -1,0 +1,10 @@
+{% extends 'email/base.txt.twig' %}
+
+{% block body %}
+Bienvenu {{ username }} !
+
+Vous êtes à un clic près d'accéder à la beta d'ireadit.io.
+Pour valider votre compte, il suffit de cliquer sur le lien ci-dessous :
+
+{{ url('register_validate', {username: username, validationHash: validation_hash}) }}
+{% endblock %}

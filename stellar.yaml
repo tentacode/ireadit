@@ -1,0 +1,7 @@
+logging: 30
+migrate_from_0_3_2: false
+project_name: ireadit
+stellar_url: postgresql://postgres:root@127.0.0.1:5432/stellar_data
+tracked_databases:
+- ireadit
+url: postgresql://postgres:root@127.0.0.1:5432/stellar_data

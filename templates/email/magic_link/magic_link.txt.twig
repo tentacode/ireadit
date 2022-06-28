@@ -1,0 +1,10 @@
+{% extends 'email/base.txt.twig' %}
+
+{% block body %}
+Bonjour !
+
+Vous êtes à un clic près d'accéder à la beta d'ireadit.io.
+Pour vous connecter, il suffit de cliquer sur le lien ci-dessous :
+
+{{ magic_link_url }}
+{% endblock %}

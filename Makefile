@@ -10,9 +10,12 @@ install: ## Installing project
 	yarn encore dev
 
 reset: ## Resetting database
+	bin/console database:postgres:close-connections
 	bin/console doctrine:database:drop --if-exists --force
 	bin/console doctrine:database:create
-	bin/console doctrine:migrations:migrate --no-interaction
+	bin/console doctrine:migrations:migrate --no-interaction -vv
+	bin/console doctrine:fixtures:load --no-interaction
+	stellar snapshot ireadit || stellar replace ireadit
 
 test: ## Run all tests
 	bin/phpspec run -fpretty
@@ -22,5 +25,12 @@ test: ## Run all tests
 e2e: ## Run all e2e tests
 	yarn run cypress open
 
-watch:
+watch: ## Watch for changes
 	yarn encore dev --watch
+
+workers: ## Run workers
+	bin/console messenger:consume async
+
+cc: ## Clear all caches
+	composer dump-autoload
+	bin/console cache:clear

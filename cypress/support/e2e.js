@@ -18,3 +18,12 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+require('cypress-maildev');
+
+beforeEach(() => {
+    // cleaning emails
+    cy.maildevDeleteAllMessages();
+    
+    // resetting the database
+    cy.exec('stellar restore ireadit')
+})

@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ireadit - Connexion à la beta{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% form_theme magic_link_form 'form_theme/register_login_form.html.twig' %}
+
+{% block body %}
+<!-- Section 1 -->
+<section class="mx-auto max-w-6xl bg-white">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="px-10 py-20 mx-auto bg-white xl:py-20 md:w-3/5 lg:w-4/5 xl:w-4/5">
+            <p class="mb-4 text-2xl font-extrabold leading-snug tracking-tight text-left text-gray-900 md:text-4xl">
+                Connectez-vous à la beta d'<span class="text-pink-500">ireadit</span>&nbsp;!
+            </p>
+            
+            {{ form_start(magic_link_form, {
+                'attr': {
+                    'class': 'mt-5',
+                    'novalidate': 'novalidate'
+                },
+                'action': path('send_magic_link'),
+            }) }}
+                {{ form_errors(magic_link_form) }}
+
+                {{ form_row(magic_link_form.email) }}
+
+                <input value="Envoyer un lien magique" type="submit" class="w-full py-2.5 px-3 mt-5 font-medium text-white bg-purple-700 cursor-pointer hover:bg-purple-600 hover:bg-purple-600 component-selected" placeholder="">
+            {{ form_end(magic_link_form) }}
+
+            <div class="pt-6 mt-6 border-t border-gray-200">
+                <p class="inline text-sm font-medium text-gray-700">Pas encore de compte ?</p>
+                <a href="{{ path('register') }}" class="inline text-sm font-medium text-purple-700 hover:text-purple-900"> Créer un compte.</a>
+                <br />
+                <p class="inline text-sm font-medium text-gray-700">Des difficultés à vous connecter ?</p>
+                <a href="#" class="inline text-sm font-medium text-purple-700 hover:text-purple-900"> Envoyer-nous un message. (@TODO)</a>
+            </div>
+        </div>
+        <div class="relative flex flex-col justify-center px-20 py-20 text-purple-700 md:px-24">
+            <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-purple-600 to-white"></div>
+            <div class="absolute inset-0 w-full h-full bg-white opacity-70"></div>
+            <div class="relative flex items-center justify-start text-xs font-semibold text-purple-500 uppercase tacking-wide">
+                À propos de votre compte ireadit :
+            </div>
+
+            <div class="relative flex mt-8 space-x-3">
+                <svg class="flex-none w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path></svg>
+                <div>
+                    <p class="text-xl font-medium">Pas de mot de passe ?</p>
+                    <p class="mt-1 text-gray-500">ireadit utilise un système de connexion par lien magique&nbsp;: c'est pratique et sécurisé&nbsp;!</p>
+                </div>
+            </div>
+            <div class="relative flex mt-8 space-x-3">
+                <svg class="flex-none w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
+                <div>
+                    <p class="text-xl font-medium">Version beta</p>
+                    <p class="mt-1 text-gray-500">L'application ireadit est toute jeune&nbsp;! Soyez indulgents et n'hésitez pas à nous contacter en cas de problème.</p>
+                </div>
+            </div>
+            <div class="relative flex mt-8 space-x-3">
+                <svg class="flex-none w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"></path><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path></svg>
+                <div>
+                    <p class="text-xl font-medium">La confidentialité de vos données</p>
+                    <p class="mt-1 text-gray-500">Nous ne partagerons jamais votre email, ni aucune donnée personelle, à un tier. @TODO Jetez un oeil à notre charte de confidentialité.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
