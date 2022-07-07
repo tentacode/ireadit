@@ -1,7 +1,3 @@
-# controllers:
-#     resource: ../src/Controller/
-#     type: attribute
-
 brick_controllers:
     resource: ../src/Brick/**/Controller/*
     type: attribute
