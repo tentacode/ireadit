@@ -1,0 +1,24 @@
+{
+  "name": "tailwind-alpine-web-extension",
+  "version": "1.0.0",
+  "scripts": {
+    "watch:tailwind": "NODE_ENV=development postcss src/tailwind.css -o extension/dist/tailwind.dist.css -w",
+    "dev:tailwind": "NODE_ENV=development postcss src/tailwind.css -o extension/dist/tailwind.dist.css",
+    "build:tailwind": "NODE_ENV=production postcss src/tailwind.css -o extension/dist/tailwind.dist.css",
+    "dev": "concurrently \"npm run watch:tailwind\" \"NODE_ENV=development webpack --config webpack.config.js --mode=development --watch\"",
+    "build": "npm run build:tailwind && webpack --mode production"
+  },
+  "devDependencies": {
+    "alpinejs": "^3.7.1",
+    "autoprefixer": "^10.4.0",
+    "concurrently": "^6.5.1",
+    "copy-webpack-plugin": "^10.2.0",
+    "cross-env": "^7.0.3",
+    "postcss-cli": "^9.1.0",
+    "postcss-loader": "^6.2.1",
+    "tailwindcss": "^3.0.7",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-extension-reloader": "^1.1.4"
+  }
+}
