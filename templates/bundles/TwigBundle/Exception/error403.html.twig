@@ -1,0 +1,9 @@
+{% extends 'error/base_error.html.twig' %}
+
+{% block error_title %}Accès interdit !{% endblock %}
+
+{% block error_message %}Vous devez être connecté pour accéder à cette page.{% endblock %}
+
+{% block error_actions %}
+    <a href="{{ path('login') }}" class="btn btn-primary">Connexion</a>
+{% endblock %}
