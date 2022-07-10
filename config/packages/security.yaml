@@ -13,6 +13,22 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        api:
+            # lazy: true
+            pattern: ^/api
+            context: main
+            # stateless: false
+            # anonymous: true
+            # guard:
+            #     authenticators:
+            #         - App\Security\ApiAuthenticator
+            provider: app_user_provider
+
+
+            # form_login:
+            #     login_path: request_magic_link
+            #     check_path: request_magic_link
         main:
             lazy: true
             provider: app_user_provider
@@ -41,6 +57,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/api, roles: ROLE_USER }
         - { path: ^/account, roles: ROLE_USER }
         - { path: ^/, roles: PUBLIC_ACCESS }
 
