@@ -19,6 +19,7 @@ reset: ## Resetting database
 
 test: ## Run all tests
 	bin/phpspec run -fpretty
+	bin/phpunit
 	bin/phpstan
 	bin/ecs
 
