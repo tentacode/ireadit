@@ -109,6 +109,7 @@
         }
     },
     "require-dev": {
+        "coduo/php-matcher": "^6.0",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpspec/phpspec": "^7.2",
         "phpstan/extension-installer": "^1.1",

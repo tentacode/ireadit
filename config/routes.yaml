@@ -1,3 +1,7 @@
 brick_controllers:
     resource: ../src/Brick/**/Controller/*
     type: attribute
+
+brick_api_controllers:
+    resource: ../src/Brick/**/Controller/Api/*
+    type: attribute
