@@ -14,7 +14,7 @@ reset: ## Resetting database
 	bin/console doctrine:database:drop --if-exists --force
 	bin/console doctrine:database:create
 	bin/console doctrine:migrations:migrate --no-interaction -vv
-	bin/console doctrine:fixtures:load --no-interaction
+	bin/console hautelook:fixtures:load -n
 	stellar snapshot ireadit || stellar replace ireadit
 
 test: ## Run all tests
@@ -30,7 +30,7 @@ watch: ## Watch for changes
 	yarn encore dev --watch
 
 workers: ## Run workers
-	bin/console messenger:consume async
+	bin/console messenger:consume async -vv
 
 cc: ## Clear all caches
 	composer dump-autoload
