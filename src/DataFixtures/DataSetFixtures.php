@@ -10,7 +10,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Uid\UuidV4;
 
-class UserFixtures extends Fixture
+class DataSetFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
