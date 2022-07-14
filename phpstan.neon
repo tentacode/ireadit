@@ -4,5 +4,8 @@ parameters:
 
     level: max
 
+    ignoreErrors:
+        - '#Class DateTimeImmutable is unsafe to use.#'
+
     #excludePaths:
     #    - app/Something.php

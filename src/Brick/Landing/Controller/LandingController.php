@@ -11,12 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class LandingController extends AbstractController
 {
     #[Route('/', name: 'landing')]
-    public function __invoke(string $name = ''): Response
+    public function __invoke(): Response
     {
-        $links = [];
-
-        return $this->render('landing/landing.html.twig', [
-            'links' => $links,
-        ]);
+        return $this->render('landing/landing.html.twig');
     }
 }

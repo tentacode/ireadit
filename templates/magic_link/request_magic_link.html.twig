@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_without_sidebar.html.twig' %}
 
 {% block title %}ireadit - Connexion à la beta{% endblock %}
 
@@ -6,7 +6,7 @@
 
 {% form_theme magic_link_form 'form_theme/register_login_form.html.twig' %}
 
-{% block body %}
+{% block content %}
 <!-- Section 1 -->
 <section class="mx-auto max-w-6xl bg-white">
     <div class="grid grid-cols-1 lg:grid-cols-2">

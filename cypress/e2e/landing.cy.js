@@ -1,6 +1,6 @@
 describe('Landing', () => {
   it('contains a valid title', () => {
     cy.visit('/')
-    cy.contains('Ne ratez plus votre veille technique !')
+    cy.contains('Ne laissez plus passer votre veille technique !')
   })
 })

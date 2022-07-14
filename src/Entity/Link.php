@@ -8,7 +8,6 @@ use App\Repository\LinkRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Safe\DateTimeImmutable;
 use Symfony\Component\Uid\UuidV4;
 
 #[ORM\Entity(repositoryClass: LinkRepository::class)]
@@ -35,8 +34,8 @@ class Link
     #[ORM\OneToMany(mappedBy: 'link', targetEntity: LinkEvent::class, orphanRemoval: true)]
     private Collection $events;
 
-    #[ORM\Column(type: 'datetime')]
-    private DateTimeImmutable $creation_date;
+    #[ORM\Column(type: 'datetime_immutable')]
+    private \DateTimeImmutable $creation_date;
 
     /** @var array<string> $metas */
     #[ORM\Column(type: 'json')]
@@ -45,7 +44,7 @@ class Link
     public function __construct()
     {
         $this->events = new ArrayCollection();
-        $this->creation_date = new DateTimeImmutable();
+        $this->creation_date = new \DateTimeImmutable();
         $this->uuid = new UuidV4();
     }
 
@@ -120,12 +119,12 @@ class Link
         return $this;
     }
 
-    public function getCreationDate(): ?DateTimeImmutable
+    public function getCreationDate(): ?\DateTimeImmutable
     {
         return $this->creation_date;
     }
 
-    public function setCreationDate(DateTimeImmutable $creation_date): self
+    public function setCreationDate(\DateTimeImmutable $creation_date): self
     {
         $this->creation_date = $creation_date;
 
@@ -148,5 +147,17 @@ class Link
         $this->metas = $metas;
 
         return $this;
+    }
+
+    public function getImageUrl(): string
+    {
+        return $this->getMetas()['twitter:image'] ??
+            $this->getMetas()['og:image'] ??
+            'https://placekitten.com/500/300';
+    }
+
+    public function getDescription(): string
+    {
+        return $this->getMetas()['description'] ?? '';
     }
 }
