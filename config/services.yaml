@@ -8,6 +8,9 @@ parameters:
     router.request_context.scheme: '%env(resolve:BASE_URL_SCHEME)%'
     router.request_context.base_url: '/'
 
+    airtable.api_key: '%env(resolve:AIRTABLE_API_KEY)%'
+    airtable.base_uri: '%env(resolve:AIRTABLE_BASE_URI)%'
+
 services:
     # default configuration for services in *this* file
     _defaults:

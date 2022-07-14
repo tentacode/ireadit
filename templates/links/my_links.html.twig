@@ -1,0 +1,51 @@
+{% extends 'base_with_sidebar.html.twig' %}
+
+{% block title %}
+  Mes liens
+{% endblock %}
+
+{% block content %}
+  <!-- Section 1 -->
+  <section class="relative w-full bg-white">
+    <div class="absolute w-full h-32 bg-gradient-to-b from-purple-200 to-white"></div>
+    <div class="relative w-full px-5 py-0 mx-auto sm:py-10 md:py-10 md:px-10 max-w-7xl">
+      <h1 class="mb-0 text-5xl font-extrabold leading-none text-gray-900 lg:text-5xl xl:text-5xl sm:mb-3">
+        <a href="#_">À lire</a>
+      </h1>
+      {# <p class="text-lg font-medium text-gray-500 sm:text-2xl">
+        Designs and layouts to help you with your app.
+      </p> #}
+      <div class="flex grid h-full grid-cols-12 gap-10 pb-10 mt-0 sm:mt-10">
+
+        <div class="grid grid-cols-12 col-span-12 gap-7">
+
+          {% for link in links %}
+            <div class="flex flex-col items-start col-span-12 overflow-hidden rounded-xl md:col-span-6 lg:col-span-4 border border-gray-200">
+              {% if link.imageUrl %}
+                <a href="{{ link.url }}"
+                  class="block w-full transition duration-200 ease-out transform hover:scale-110">
+                  {#  transition duration-200 ease-out transform hover:scale-110 bg-gradient-to-r from-purple-500 to-pink-500 #}
+                  <img class="object-cover w-full max-h-56"
+                    src="{{ link.imageUrl }}" />
+                </a>
+              {% endif %}
+              <div class="w-full relative flex flex-col items-start px-6 bg-white py-7 border-0 border-t-2 border-gray-200">
+                <div class="bg-pink-400 absolute top-0 -mt-3 flex items-center px-3 py-1.5 leading-none w-auto inline-block rounded-full text-xs font-medium uppercase text-white inline-block">
+                  <span>{{ link.type }}</span>
+                </div>
+                <h2 class="text-base font-bold sm:text-lg md:text-xl">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </h2>
+                <p class="mt-2 text-sm text-gray-500">
+                  {{ link.description }}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

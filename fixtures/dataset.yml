@@ -5,12 +5,12 @@ App\Entity\User:
     username: tentacode
     registration_status: <(App\Entity\RegistrationStatus::VALIDATED)>
 
-App\Entity\Link:
-  link-tails:
-    title: Tailwind CSS Page Creator - Tails
-    url: https://devdojo.com/tails
-    # TODO enum
-    type: 'Outil'
-    metas:
-      "og:image": "https://cdn.devdojo.com/images/january2021/og-image.png?w=1280&w=720"
-      "og:description": "The ultimate TailwindCSS drag-and-drop page creator."
+# App\Entity\Link:
+#   link-tails:
+#     title: Tailwind CSS Page Creator - Tails
+#     url: https://devdojo.com/tails
+#     # TODO enum
+#     type: 'Outil'
+#     metas:
+#       "og:image": "https://cdn.devdojo.com/images/january2021/og-image.png?w=1280&w=720"
+#       "og:description": "The ultimate TailwindCSS drag-and-drop page creator."

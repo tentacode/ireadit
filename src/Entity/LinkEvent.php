@@ -6,7 +6,6 @@ namespace App\Entity;
 
 use App\Repository\LinkEventRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Safe\DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: LinkEventRepository::class)]
 class LinkEvent
@@ -17,7 +16,7 @@ class LinkEvent
     private int $id;
 
     #[ORM\Column(type: 'datetime')]
-    private DateTimeImmutable $event_date;
+    private \DateTimeImmutable $event_date;
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $type;
@@ -30,17 +29,22 @@ class LinkEvent
     #[ORM\JoinColumn(nullable: false)]
     private Link $link;
 
+    public function __construct()
+    {
+        $this->event_date = new \DateTimeImmutable();
+    }
+
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function getEventDate(): DateTimeImmutable
+    public function getEventDate(): \DateTimeImmutable
     {
         return $this->event_date;
     }
 
-    public function setEventDate(DateTimeImmutable $event_date): self
+    public function setEventDate(\DateTimeImmutable $event_date): self
     {
         $this->event_date = $event_date;
 

@@ -72,7 +72,7 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->registrationDate = new \Safe\DateTimeImmutable();
+        $this->registrationDate = new \DateTimeImmutable();
         $this->uuid = new UuidV4();
         $this->registrationStatus = RegistrationStatus::PENDING;
     }
