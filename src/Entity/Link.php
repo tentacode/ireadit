@@ -149,11 +149,10 @@ class Link
         return $this;
     }
 
-    public function getImageUrl(): string
+    public function getImageUrl(): ?string
     {
         return $this->getMetas()['twitter:image'] ??
-            $this->getMetas()['og:image'] ??
-            'https://placekitten.com/500/300';
+            $this->getMetas()['og:image'] ?? null;
     }
 
     public function getDescription(): string
