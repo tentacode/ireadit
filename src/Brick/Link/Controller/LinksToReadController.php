@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Brick\Link\Controller;
 
 use App\Repository\LinkRepository;
+use function Safe\shuffle;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
-use function Safe\shuffle;
+use Symfony\Component\Routing\Annotation\Route;
 
 class LinksToReadController extends AbstractController
 {

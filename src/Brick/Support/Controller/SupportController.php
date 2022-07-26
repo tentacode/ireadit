@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Brick\Support\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
