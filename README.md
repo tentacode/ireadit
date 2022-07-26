@@ -11,7 +11,7 @@ ireadit is built using :
 * Symfony 6
 * tailwind
 * heroicons
-* tailwind app
+* tailwind ui
 * template email : https://github.com/leemunroe/responsive-html-email-template
 * devdojo tails
 
