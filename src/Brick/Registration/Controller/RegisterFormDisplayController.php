@@ -17,7 +17,7 @@ class RegisterFormDisplayController extends AbstractController
         if ($this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('links_to_read');
         }
-        
+
         $registrationForm = $this->createForm(RegistrationType::class);
 
         return $this->render('registration/register_form.html.twig', [

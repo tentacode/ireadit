@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Twig;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
+use Webmozart\Assert\Assert;
 
 class SidebarMenuExtension extends AbstractExtension
 {
@@ -15,13 +17,14 @@ class SidebarMenuExtension extends AbstractExtension
 
     public function getFunctions()
     {
-        return [
-            new TwigFunction('is_current_menu', [$this, 'isCurrentMenu']),
-        ];
+        return [new TwigFunction('is_current_menu', [$this, 'isCurrentMenu'])];
     }
-    
+
     public function isCurrentMenu(string $routeName): bool
     {
-        return $routeName === $this->requestStack->getCurrentRequest()->get('_route');
+        Assert::notNull($this->requestStack->getCurrentRequest());
+
+        return $routeName === $this->requestStack->getCurrentRequest()
+            ->get('_route');
     }
 }
