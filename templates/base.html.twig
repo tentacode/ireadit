@@ -20,16 +20,18 @@
                     {{ include('layout/sidebar.html.twig') }}
                 {% endblock %}
                 
-                <main class="grow">
+                <main class="grow flex flex-col">
+                    <div class="grow">
                     {% block content %}
+                    {% endblock %}
+                    </div>
+                    {% block footer %}
+                        {{ include('layout/footer.html.twig') }}
                     {% endblock %}
                 </main>
             </div>
         </div>
         
-        {% block footer %}
-            {{ include('layout/footer.html.twig') }}
-        {% endblock %}
     </div>
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}

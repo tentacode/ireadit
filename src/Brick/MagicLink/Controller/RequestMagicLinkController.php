@@ -14,6 +14,10 @@ class RequestMagicLinkController extends AbstractController
     #[Route('/magic-link', methods: ['GET'], name: 'request_magic_link')]
     public function __invoke(): Response
     {
+        if ($this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('links_to_read');
+        }
+        
         $magicLinkForm = $this->createForm(SendMagicLinkType::class);
 
         return $this->render('magic_link/request_magic_link.html.twig', [
