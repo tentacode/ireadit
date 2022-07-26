@@ -1,14 +1,12 @@
+{% set menuItemClasses = 'flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100 hover:text-black' %}
+{% set currentClasses = 'text-pink-200 underline underline-offset-4 decoration-wavy' %}
+
 <aside class="flex-none w-64 h-full" aria-label="Sidebar">
    <div class="fixed w-64 h-full overflow-y-auto py-4 px-3 bg-gradient-to-br from-purple-600 to-indigo-600 dark:bg-gray-800">
-   
-      <ul class="space-y-2">
-         <li class="" style="text-align: center; padding-top: 10px; padding-bottom: 20px;">
-            <a href="{{ path('landing') }}" class="mx-auto text-2xl font-black leading-none text-white select-none">
-                ireadit<span class="text-pink-300">.</span>io
-            </a>
-         </li>
+
+      <ul class="space-y-2 text-gray-100">
          <li>
-            <a href="{{ path('links_to_read') }}" class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-gray-100 hover:text-black">
+            <a href="{{ path('links_to_read') }}" class="{{ menuItemClasses }} {% if is_current_menu('links_to_read') %}{{ currentClasses }}{% endif %}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" vmyiewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
@@ -16,7 +14,7 @@
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-gray-100 hover:text-black">
+            <a href="#" class="{{ menuItemClasses }} {% if is_current_menu('links_read') %}{{ currentClasses }}{% endif %}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>               
@@ -26,7 +24,7 @@
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-gray-100 hover:text-black">
+            <a href="#" class="{{ menuItemClasses }} {% if is_current_menu('recommandations') %}{{ currentClasses }}{% endif %}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>               
@@ -34,7 +32,7 @@
             </a>
          </li>
          <li>
-            <a href="{{ path('support') }}" class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-gray-100 hover:text-black">
+            <a href="{{ path('support') }}" class="{{ menuItemClasses }} {% if is_current_menu('support') %}{{ currentClasses }}{% endif %}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -42,7 +40,7 @@
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg hover:bg-gray-100 hover:text-black">
+            <a href="{{ path('logout') }}" class="{{ menuItemClasses }} {% if is_current_menu('logout') %}{{ currentClasses }}{% endif %}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
