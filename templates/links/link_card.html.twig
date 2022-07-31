@@ -1,0 +1,56 @@
+<div class="relative rounded-xl overflow-hidden border border-gray-200">
+    <div class="w-full aspect-[16/9]">
+        {% if link.imageUrl %}
+            <a href="{{ link.url }}"
+                style="background-image: url('{{ link.imageUrl }}'); background-size: cover; background-position: center"
+                class="h-full w-full block transition duration-200 ease-out transform hover:scale-110">
+                {# <img class="w-full object-cover" src="{{ link.imageUrl }}" /> #}
+            </a>
+        {% else %}
+            {% set gradient = random([
+                'from-pink-50 to-pink-150',
+                'from-purple-50 to-purple-150',
+                'from-blue-50 to-blue-150',
+                'from-orange-50 to-orange-150',
+                'from-red-50 to-red-150',
+                'from-green-50 to-green-150',
+                'from-orange-50 to-orange-150',
+            ]) %}
+            <div class="h-full w-full bg-gradient-to-b {{ gradient }}"></div>
+        {% endif %}
+    </div>
+    
+    <div class="w-full relative flex flex-col items-start px-6 bg-white py-7 border-0 border-t-2 border-gray-200">
+    
+        <div class="absolute -top-6 right-5 flex items-center  leading-none w-auto inline-block  inline-block">
+            <a href="#" class="w-12 h-12 text-xl font-medium uppercase text-pink-200 shadow-md bg-white rounded-full ring-1 ring-slate-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto mt-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+            </a>
+        </div>
+        {# <div class="absolute top-0 -mt-4 flex items-center  leading-none w-auto inline-block  inline-block">
+            <span class=" ml-1 text-xl p-0 font-medium uppercase text-green-400 bg-white rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 " viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+            </span>
+
+            
+
+            <div class="ml-14 flex -space-x-3">
+                <span class="inline-block text-center text-xl pt-0.5 h-8 w-8 rounded-full bg-white ring-1 ring-slate-200">👍</span>
+                <span class="inline-block text-center text-xl pt-0.5 h-8 w-8 rounded-full bg-white ring-1 ring-slate-200">😂</span>
+                <span class="inline-block text-center text-xl pt-0.5 h-8 w-8 rounded-full bg-white ring-1 ring-slate-200">💖</span>
+                <span class="inline-block text-center text-xl pt-0.5 h-8 w-8 rounded-full bg-white ring-1 ring-slate-200">🤡</span>
+            </div>
+        </div> #}
+        <h2 class="text-base font-bold sm:text-lg md:text-xl">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+        </h2>
+        <p class="mt-2 text-sm text-gray-500">
+            {{ link.description }}
+        </p>
+        {# <span class="mt-2 bg-slate-200 px-2 py-1 rounded-full text-[0.6rem] font-medium uppercase text-black">{{ link.type }}</span> #}
+    </div>
+</div>

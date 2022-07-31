@@ -1,7 +1,7 @@
 
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<div x-cloak x-show="addLinkModalOpen" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <!--
     Background backdrop, show/hide based on modal state.
 
@@ -26,7 +26,7 @@
           From: "opacity-100 translate-y-0 sm:scale-100"
           To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       -->
-      <div class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6">
+      <div @click.outside="addLinkModalOpen = false" class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6">
         <div>
           <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-pink-100">
             <!-- Heroicon name: outline/check -->
@@ -63,7 +63,7 @@
 -->
 <div class="mt-5 relative border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
   <label for="name" class="absolute -top-2 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900">URL du lien</label>
-  <input type="text" name="name" id="name" class="block w-full border-0 p-0 text-gray-900 placeholder-gray-300 focus:ring-0 sm:text-sm" placeholder="https://placekitten.com">
+  <input type="url" name="name" id="name" class="block w-full border-0 p-0 text-gray-900 placeholder-gray-300 focus:ring-0 sm:text-sm" placeholder="https://placekitten.com">
 </div>
 
         <div class="mt-5 sm:mt-6">
