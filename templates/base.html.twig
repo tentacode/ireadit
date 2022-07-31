@@ -8,7 +8,7 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body x-data="{addLinkModalOpen: false}" class="{% block body_class %}{% endblock %}">
     <div class="flex flex-col h-screen">
         {% block top_navigation %}
             {{ include('layout/top_navigation.html.twig') }}
