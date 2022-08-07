@@ -35,3 +35,12 @@ workers: ## Run workers
 cc: ## Clear all caches
 	composer dump-autoload
 	bin/console cache:clear
+
+spam: ## Create a big dataset
+	bin/console database:postgres:close-connections
+	bin/console doctrine:database:drop --if-exists --force
+	bin/console doctrine:database:create
+	bin/console doctrine:migrations:migrate --no-interaction -vv
+	bin/console hautelook:fixtures:load -n
+	bin/console fixtures:spam --link-number=1000000 --user-number=200
+	stellar snapshot ireadit_spam || stellar replace ireadit_spam
