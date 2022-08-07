@@ -4,13 +4,84 @@ App\Entity\User:
     email: gabriel@tentacode.test
     username: tentacode
     registration_status: <(App\Entity\RegistrationStatus::VALIDATED)>
+  johndoe:
+    # uuid: '92e90ebf-9613-4401-8ebc-b664560d319e'
+    email: johndoe@tentacode.test
+    username: johndoe
+    registration_status: <(App\Entity\RegistrationStatus::VALIDATED)>
 
-# App\Entity\Link:
-#   link-tails:
-#     title: Tailwind CSS Page Creator - Tails
-#     url: https://devdojo.com/tails
-#     # TODO enum
-#     type: 'Outil'
-#     metas:
-#       "og:image": "https://cdn.devdojo.com/images/january2021/og-image.png?w=1280&w=720"
-#       "og:description": "The ultimate TailwindCSS drag-and-drop page creator."
+App\Entity\Link:
+  link-google-chrome:
+    title: Google Chrome
+    url: https://google-chrome.io
+    type: 'Outil'
+    imageUrl: 'http://ireadit.test/fixtures/google-chrome.png'
+    description: Internet browser.
+  link-maildev:
+    title: Maildev
+    url: https://maildev.io
+    type: 'Outil'
+    imageUrl: 'http://ireadit.test/fixtures/maildev.png'
+    description: Captures e-mails for your dev environment.
+  link-stackbricks:
+    title: StackBricks
+    url: https://stackbricks.io
+    type: 'Outil'
+    imageUrl: 'http://ireadit.test/fixtures/stackbricks.png'
+    description: Easily manage version of MySQL and Postgres on Mac with Docker.
+  link-steam:
+    title: Steam
+    url: https://steam.io
+    type: 'Outil'
+    imageUrl: 'http://ireadit.test/fixtures/steam.png'
+    description: Download games.
+  link-table-plus:
+    title: TablePlus
+    url: https://table-plus.io
+    type: 'Outil'
+    imageUrl: 'http://ireadit.test/fixtures/table-plus.png'
+    description: Connect on your databases.
+
+  link-docker:
+    title: Docker for Mac
+    url: https://docker.io
+    type: 'Outil'
+    imageUrl: 'http://ireadit.test/fixtures/docker.png'
+    description: Docker to containerize your apps on Mac.
+  link-vscode:
+    title: VSCode
+    url: https://vscode.io
+    type: 'Outil'
+    imageUrl: 'http://ireadit.test/fixtures/vscode.png'
+    description: Code editor.
+
+App\Entity\LinkEvent:
+  added-by-tentacode-google-chrome:
+    link: '@link-google-chrome'
+    author: '@tentacode'
+    type: 'added'
+  added-by-tentacode-steam:
+    link: '@link-steam'
+    author: '@tentacode'
+    type: 'added'
+  added-by-tentacode-maildev:
+    link: '@link-maildev'
+    author: '@tentacode'
+    type: 'added'
+  added-by-tentacode-stackbricks:
+    link: '@link-stackbricks'
+    author: '@tentacode'
+    type: 'added'
+  added-by-tentacode-table-plus:
+    link: '@link-table-plus'
+    author: '@johndoe'
+    type: 'added'
+
+  added-by-johndoe-docker:
+    link: '@link-docker'
+    author: '@johndoe'
+    type: 'added'
+  added-by-johndoe-vscode:
+    link: '@link-vscode'
+    author: '@johndoe'
+    type: 'added'
