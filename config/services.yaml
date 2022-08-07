@@ -29,3 +29,13 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     Symfony\Component\Security\Http\Authenticator\FormLoginAuthenticator: '@security.authenticator.form_login.main'
+
+    App\Brick\Poulpe\SqlQueryFactory: ~
+    App\Brick\Poulpe\SqlQuery:
+        class: 'App\Brick\Poulpe\SqlQuery'
+        factory: '@App\Brick\Poulpe\SqlQueryFactory'
+
+    App\Brick\Security\LoggedInUserFactory: ~
+    App\Brick\Security\LoggedInUser:
+        class: 'App\Brick\Security\LoggedInUser'
+        factory: '@App\Brick\Security\LoggedInUserFactory'

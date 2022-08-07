@@ -41,6 +41,12 @@ class Link
     #[ORM\Column(type: 'json')]
     private array $metas = [];
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $imageUrl;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $description;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
@@ -151,12 +157,28 @@ class Link
 
     public function getImageUrl(): ?string
     {
-        return $this->getMetas()['twitter:image'] ??
+        return $this->imageUrl ??
+            $this->getMetas()['twitter:image'] ??
             $this->getMetas()['og:image'] ?? null;
     }
 
     public function getDescription(): string
     {
-        return $this->getMetas()['description'] ?? '';
+        return $this->description ??
+            $this->getMetas()['description'] ?? '';
+    }
+
+    public function setImageUrl(?string $imageUrl): self
+    {
+        $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }
