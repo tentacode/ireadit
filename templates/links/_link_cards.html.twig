@@ -1,0 +1,10 @@
+  <section class="relative w-full bg-white">
+    <div class="absolute w-full h-32 bg-gradient-to-b from-purple-200 to-white"></div>
+    <div class="relative w-full mx-auto py-10 px-10 max-w-7xl">
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {% for link in links %}
+            {% include 'links/link_card.html.twig' %}
+          {% endfor %}
+        </div>
+    </div>
+  </section>
